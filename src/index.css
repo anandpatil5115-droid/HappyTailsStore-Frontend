@@ -1,0 +1,148 @@
+:root {
+  --color-primary: #9b4500;
+  --color-primary-light: #ff914d;
+  --color-cream: #fcf9f4;
+  --color-dark: #1c1c19;
+  --color-brown: #564339;
+  --color-muted: #dcc1b4;
+  --color-success: #065f46;
+  --color-error: #dc2626;
+  --font-display: 'Quicksand', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-cream);
+  color: var(--color-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6,
+label, button, p {
+  font-family: var(--font-body);
+}
+
+.auth-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #dcc1b4;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  padding: 17px 12px 17px 40px;
+  font-size: 16px;
+  color: #564339;
+  outline: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-text-fill-color: #564339;
+  transition: border-color 0.2s ease;
+}
+
+.auth-input:focus {
+  border-bottom-color: #ff914d;
+}
+
+.auth-input:focus {
+  border-color: var(--color-primary-light);
+}
+
+.auth-input.input-error {
+  border-color: var(--color-error);
+}
+
+/* Prevent any white/cream background on inputs (autofill, etc.) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px rgba(252, 249, 244, 0.75) inset !important;
+  -webkit-text-fill-color: var(--color-brown) !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  caret-color: var(--color-brown) !important;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: var(--color-primary-light);
+  box-shadow: 0 0 20px rgba(255, 145, 77, 0.4);
+  transform: translateY(-1px);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.05);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-blob {
+  animation: blobFloat 5s ease-in-out infinite;
+}

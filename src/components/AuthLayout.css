@@ -1,0 +1,159 @@
+/* ─── Layout: absolute positioning (no CSS Grid) ──── */
+.auth-layout {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--color-cream);
+  overflow: hidden;
+}
+
+/* ─── Background Image (full viewport) ──────────── */
+.auth-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Gradient overlay on the image (darkens bottom for contrast) */
+.auth-layout::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Quote Card ─────────────────────────────────── */
+.auth-quote-card {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  z-index: 3;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  max-width: 260px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.auth-quote-icon {
+  font-size: 32px;
+  color: var(--color-primary-light);
+  line-height: 1;
+  margin-bottom: -6px;
+  font-family: serif;
+}
+
+.auth-quote-card p {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.auth-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.auth-stars span {
+  color: var(--color-primary-light);
+  font-size: 14px;
+}
+
+/* ─── Glass Panel (right 42%) ──────────────────────── */
+.auth-glass-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 56px;
+  background: rgba(252, 249, 244, 0.75);
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+  z-index: 2;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 340px;
+}
+
+/* ─── Blob Badge ───────────────────────────────────── */
+.auth-blob-badge {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  box-shadow: 0 8px 24px rgba(155, 69, 0, 0.25);
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ─── Wordmark ──────────────────────────────────────── */
+.auth-wordmark {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Mobile ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .auth-glass-panel {
+    clip-path: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-bg-img {
+    display: none;
+  }
+
+  .auth-glass-panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 36px 24px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--color-cream);
+    clip-path: none;
+    z-index: auto;
+  }
+
+  .auth-quote-card {
+    display: none;
+  }
+
+  .auth-wordmark {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .auth-blob-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
