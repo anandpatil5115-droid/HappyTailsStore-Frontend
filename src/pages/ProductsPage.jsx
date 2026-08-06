@@ -205,6 +205,29 @@ export default function ProductsPage() {
             )}
           </button>
 
+          {localStorage.getItem('role') === 'ADMIN' && (
+            <button
+              onClick={() => navigate('/admin/dashboard')}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: '#3B82F6',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 20,
+                cursor: 'pointer',
+                fontSize: 14,
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => { e.target.style.backgroundColor = '#2563EB'; }}
+              onMouseLeave={(e) => { e.target.style.backgroundColor = '#3B82F6'; }}
+            >
+              Go to Admin Dashboard
+            </button>
+          )}
+
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <button 
               onClick={(e) => { e.stopPropagation(); setShowProfile(!showProfile); }}

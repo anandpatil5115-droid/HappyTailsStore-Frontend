@@ -1,5 +1,11 @@
-// ─── Brand / Text ─────────────────────────────────────
-export const headingStyle = {
+const PRIMARY = '#9b4500';
+const PRIMARY_LIGHT = '#ff914d';
+const CREAM = '#fcf9f4';
+const BROWN = '#564339';
+const MUTED = '#dcc1b4';
+const BORDER = '#eadfce';
+
+const headingStyle = {
   fontSize: 20,
   fontWeight: 700,
   color: '#1c1c19',
@@ -8,14 +14,13 @@ export const headingStyle = {
   marginBottom: 4,
 };
 
-export const subtextStyle = {
+const subtextStyle = {
   fontSize: 12,
   color: '#564339',
   lineHeight: 1.5,
 };
 
-// ─── Form Fields ──────────────────────────────────────
-export const fieldLabelStyle = {
+const fieldLabelStyle = {
   display: 'block',
   fontSize: 9,
   fontWeight: 600,
@@ -25,7 +30,7 @@ export const fieldLabelStyle = {
   textTransform: 'uppercase',
 };
 
-export const fieldInputStyle = {
+const fieldInputStyle = {
   width: '100%',
   padding: '17px 12px 17px 40px',
   fontSize: 16,
@@ -35,7 +40,7 @@ export const fieldInputStyle = {
   WebkitTextFillColor: '#564339',
 };
 
-export const iconLeftStyle = {
+const iconLeftStyle = {
   position: 'absolute',
   left: 0,
   top: '50%',
@@ -45,7 +50,7 @@ export const iconLeftStyle = {
   pointerEvents: 'none',
 };
 
-export const showToggleStyle = {
+const showToggleStyle = {
   position: 'absolute',
   right: 0,
   top: '50%',
@@ -60,14 +65,13 @@ export const showToggleStyle = {
   letterSpacing: '0.03em',
 };
 
-export const fieldErrorStyle = {
+const fieldErrorStyle = {
   fontSize: 10,
   color: '#dc2626',
   marginTop: 2,
 };
 
-// ─── Button ───────────────────────────────────────────
-export const submitButtonStyle = (loading) => ({
+const submitButtonStyle = (loading) => ({
   width: '100%',
   padding: '12px 0',
   background: loading ? '#564339' : '#9b4500',
@@ -84,8 +88,7 @@ export const submitButtonStyle = (loading) => ({
   overflow: 'hidden',
 });
 
-// ─── Toast ────────────────────────────────────────────
-export const toastStyle = (type) => ({
+const toastStyle = (type) => ({
   position: 'fixed',
   top: 16,
   right: 16,
@@ -104,7 +107,7 @@ export const toastStyle = (type) => ({
   gap: 10,
 });
 
-export const toastCloseStyle = {
+const toastCloseStyle = {
   background: 'none',
   border: 'none',
   color: 'rgba(255,255,255,0.7)',
@@ -114,10 +117,23 @@ export const toastCloseStyle = {
   lineHeight: 1,
 };
 
-// ─── Shared Animations ────────────────────────────────
-export const sharedKeyframes = `
+const sharedKeyframes = `
   @media (max-width: 768px) {
     .split-layout { flex-direction: column; }
     .split-right { min-height: 300px; order: -1; }
   }
 `;
+
+export {
+  headingStyle,
+  subtextStyle,
+  fieldLabelStyle,
+  fieldInputStyle,
+  iconLeftStyle,
+  showToggleStyle,
+  fieldErrorStyle,
+  submitButtonStyle,
+  toastStyle,
+  toastCloseStyle,
+  sharedKeyframes,
+};

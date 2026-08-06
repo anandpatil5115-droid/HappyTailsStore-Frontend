@@ -48,17 +48,22 @@ export default function LoginPage() {
         showToast(data.message || 'Invalid email or password', 'error');
         return;
       }
+      if (data.role === 'ADMIN') {
+        showToast('Please use the Admin Portal to log in', 'error');
+        return;
+      }
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', String(data.userId));
       localStorage.setItem('username', data.username);
+      localStorage.setItem('role', data.role);
       showToast('Welcome back, Pet Parent!', 'success');
        setForm({ email: '', password: '', rememberMe: false });
        navigate('/products');
-     } catch (error) {
-       showToast('Login failed. Please try again.', 'error');
-     } finally {
-       setLoading(false);
-     }
+    } catch (error) {
+      showToast('Login failed. Please try again.', 'error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -129,6 +134,15 @@ export default function LoginPage() {
           style={{ fontSize: 11, color: '#1c1c19', fontWeight: 700, textDecoration: 'none', letterSpacing: '0.02em' }}
         >
           Create an Account →
+        </Link>
+      </div>
+
+      <div style={{ textAlign: 'right', marginTop: 8 }}>
+        <Link
+          to="/admin/login"
+          style={{ fontSize: 11, color: '#564339', textDecoration: 'none', fontWeight: 500 }}
+        >
+          Are you an admin? Login here
         </Link>
       </div>
 

@@ -57,7 +57,6 @@ export default function RegisterPage() {
     
     setLoading(true);
     try {
-      try {
       const response = await fetch('http://localhost:8080/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -77,9 +76,6 @@ export default function RegisterPage() {
       showToast('Registration successful! Welcome to HappyTailsStore.', 'success');
       setForm({ username: '', email: '', password: '', confirmPassword: '' });
       setTimeout(() => navigate('/login'), 1500);
-    } catch (error) {
-      showToast('Registration failed. Please try again.', 'error');
-    }
     } catch (error) {
       showToast('Registration failed. Please try again.', 'error');
     } finally {

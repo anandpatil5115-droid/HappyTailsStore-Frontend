@@ -90,11 +90,27 @@ export default function CheckoutPage() {
     }
   };
 
+  const loadRazorpayScript = () => {
+    return new Promise((resolve, reject) => {
+      if (window.Razorpay) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => resolve(true);
+      script.onerror = () => reject(new Error('Failed to load Razorpay SDK'));
+      document.body.appendChild(script);
+    });
+  };
+
   const handleRazorpayPayment = async () => {
     setPaymentProcessing(true);
     setError(null);
     setPaymentCancelled(false);
     try {
+      await loadRazorpayScript();
       const orderData = await createRazorpayOrder();
       const options = {
         key: orderData.keyId,
@@ -218,6 +234,25 @@ export default function CheckoutPage() {
               </div>
             )}
           </div>
+          {localStorage.getItem('role') === 'ADMIN' && (
+            <button
+              onClick={() => navigate('/admin/dashboard')}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: '#3B82F6',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 20,
+                cursor: 'pointer',
+                fontSize: 14,
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Go to Admin Dashboard
+            </button>
+          )}
         </div>
       </nav>
 

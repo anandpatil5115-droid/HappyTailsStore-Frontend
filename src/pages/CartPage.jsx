@@ -182,6 +182,25 @@ export default function CartPage() {
               </div>
             )}
           </div>
+          {localStorage.getItem('role') === 'ADMIN' && (
+            <button
+              onClick={() => navigate('/admin/dashboard')}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: '#3B82F6',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 20,
+                cursor: 'pointer',
+                fontSize: 14,
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Go to Admin Dashboard
+            </button>
+          )}
           <button onClick={() => navigate('/products')} style={{
             padding: '8px 16px', backgroundColor: 'rgba(255,255,255,0.15)', border: 'none',
             color: '#fff', borderRadius: 20, fontSize: 14, cursor: 'pointer', fontFamily: "'Plus Jakarta Sans', sans-serif"
