@@ -45,21 +45,22 @@ label, button, p {
 .auth-input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #dcc1b4;
-  border-radius: 0;
+  border-bottom: 2px solid #dcc1b4;
+  border-radius: 10px 10px 0 0;
   box-shadow: none;
   width: 100%;
-  padding: 17px 12px 17px 40px;
+  padding: 17px 40px 17px 40px;
   font-size: 16px;
   color: #564339;
   outline: none;
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-text-fill-color: #564339;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .auth-input:focus {
   border-bottom-color: #ff914d;
+  border-radius: 10px 10px 0 0;
 }
 
 .auth-input:focus {
@@ -84,7 +85,7 @@ input:-webkit-autofill:focus {
 .auth-submit-btn {
   width: 100%;
   padding: 12px 0;
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), #c05e1a);
   color: #fff;
   border: none;
   border-radius: 24px;
@@ -99,8 +100,8 @@ input:-webkit-autofill:focus {
 }
 
 .auth-submit-btn:hover:not(:disabled) {
-  background: var(--color-primary-light);
-  box-shadow: 0 0 20px rgba(255, 145, 77, 0.4);
+  background: linear-gradient(135deg, #c05e14, var(--color-primary-light));
+  box-shadow: 0 4px 18px rgba(255, 145, 77, 0.5);
   transform: translateY(-1px);
 }
 
@@ -145,4 +146,13 @@ input:-webkit-autofill:focus {
 
 .animate-blob {
   animation: blobFloat 5s ease-in-out infinite;
+}
+
+/* ─── Accessibility: reduce decorative motion ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-blob {
+    animation: none;
+    opacity: 1;
+  }
 }

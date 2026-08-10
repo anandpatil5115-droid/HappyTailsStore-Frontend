@@ -53,9 +53,7 @@ export default function AdminLoginPage() {
         showToast('This login is for administrators only', 'error');
         return;
       }
-      login(data.token, data.role);
-      localStorage.setItem('userId', String(data.userId));
-      localStorage.setItem('username', data.username);
+      login(data.token, true);
       setForm({ email: '', password: '' });
       navigate('/admin/dashboard');
     } catch (error) {

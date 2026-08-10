@@ -1,38 +1,47 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
+import { authHeroVariants, authQuoteVariants } from '../animations';
 import './AuthLayout.css';
 
 export default function AuthLayout({ children }) {
   return (
     <div className="auth-layout">
-      <img className="auth-bg-img" src="/images/pet-spa.jpg" alt="" />
-      <div className="auth-quote-card animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+      <motion.img
+        className="auth-bg-img"
+        src="/images/pet-spa.jpg"
+        alt=""
+        variants={authHeroVariants}
+        initial="initial"
+        animate="animate"
+      />
+      <motion.div
+        className="auth-quote-card"
+        variants={authQuoteVariants}
+        initial="initial"
+        animate="animate"
+      >
         <div className="auth-quote-icon">"</div>
         <p>Providing your pets with the quality they deserve.</p>
         <div className="auth-stars">
           <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
         </div>
-      </div>
+      </motion.div>
       <div className="auth-glass-panel">
         <div className="auth-form-container">
-          <div 
+          <div
             className="auth-blob-badge animate-fade-in-up animate-blob"
             style={{ animationDelay: '0.1s' }}
           >
             🐾
           </div>
-          <div 
+          <div
             className="auth-wordmark animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             HappyTailsStore
           </div>
-          <div 
-            className="animate-fade-in-up"
-            style={{ animationDelay: '0.3s' }}
-          >
-            {children}
-          </div>
+          {children}
         </div>
       </div>
     </div>
