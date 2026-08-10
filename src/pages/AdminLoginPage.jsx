@@ -11,6 +11,7 @@ import {
 } from '../styles/authStyles';
 import { validateLogin } from '../utils/validators';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE } from '../utils/api';
 
 export default function AdminLoginPage() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function AdminLoginPage() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const response = await fetch(`${API_BASE}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email, password: form.password }),

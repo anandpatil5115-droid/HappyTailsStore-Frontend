@@ -2,9 +2,9 @@ import React from 'react';
 import { createContext, useContext, useState, useCallback } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { toast } from 'react-hot-toast';
+import { API_BASE } from '../utils/api';
 
 const AuthContext = createContext(null);
-const API_BASE = 'http://localhost:8080';
 
 function decodeToken(token) {
   try {

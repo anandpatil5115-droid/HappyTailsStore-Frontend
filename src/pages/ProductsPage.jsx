@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getStoredToken } from '../utils/auth';
 import { useAuth } from '../context/AuthContext';
 import { staggerContainer, staggerItem, EASE } from '../animations';
+import { API_BASE } from '../utils/api';
 
 const PRIMARY = '#9b4500';
 const PRIMARY_LIGHT = '#ff914d';
 const CREAM = '#fcf9f4';
 const BROWN = '#564339';
 const MUTED = '#dcc1b4';
-const API_BASE = 'http://localhost:8080';
 const CARD_BORDER = '#e5e5e5';
 const CARD_BORDER_LIGHT = '#f0ece6';
 

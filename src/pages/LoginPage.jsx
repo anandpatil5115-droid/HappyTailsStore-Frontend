@@ -15,6 +15,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   authFormContainer, authFieldItem, EASE,
 } from '../animations';
+import { API_BASE } from '../utils/api';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ export default function LoginPage() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const response = await fetch(`${API_BASE}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email, password: form.password }),

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE } from '../utils/api';
 import {
   LayoutDashboard, Package, Users, DollarSign, BarChart3, Calendar,
   Trophy, TrendingUp, Search, Download, Trash2, Edit3, ChevronLeft,
@@ -15,7 +16,6 @@ const CREAM = '#fcf9f4';
 const BROWN = '#564339';
 const MUTED = '#dcc1b4';
 const BORDER = '#eadfce';
-const API_BASE = 'http://localhost:8080';
 const CARD_BG = '#ffffff';
 const CARD_BORDER = '#e5e5e5';
 const TEXT_DARK = '#2d2d2d';

@@ -11,6 +11,7 @@ import {
   sharedKeyframes
 } from '../styles/authStyles';
 import { validateRegister } from '../utils/validators';
+import { API_BASE } from '../utils/api';
 import {
   authFormContainer, authFieldItem, EASE,
 } from '../animations';
@@ -65,7 +66,7 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/api/auth/register', {
+      const response = await fetch(`${API_BASE}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
